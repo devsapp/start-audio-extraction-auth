@@ -1,15 +1,12 @@
 edition: 3.0.0
-name: agentcraft-fm-qwen-biz
+name: DipperAI-audio
 vars:
   region: '{{ region }}'
   modelId: '{{ modelId }}'
   name: '{{ name }}'
   token: '{{ token }}'
-template:
-  agentcraft-fm-qwen-biz:
-    internetAccess: true
 resources:
-  apiServer:
+  main:
     component: fc3
     props:
       region: ${vars.region}
@@ -39,7 +36,7 @@ resources:
           /code:/code/lib:/usr/local/lib:/opt/lib:/opt/php8.1/lib:/opt/php8.0/lib:/opt/php7.2/lib
         PATH: >-
           /opt/python3.10/bin:/usr/local/bin/apache-maven/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/ruby/bin:/opt/bin:/code:/code/bin
-      functionName: ${var.name}
+      functionName: ${vars.name}
       code: ./code
       triggers:
         - description: ''
@@ -51,8 +48,7 @@ resources:
               - POST
             authType: anonymous
             disableURLInternet: false
-    extend:
-      name: ${var.name}
+
   domain:
     component: fc3-domain
     props:
@@ -62,4 +58,4 @@ resources:
       routeConfig:
         routes:
           - path: /*
-            functionName: ${var.name}
+            functionName: ${vars.name}
