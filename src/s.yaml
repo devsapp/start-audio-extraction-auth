@@ -40,7 +40,7 @@ resources:
         PATH: >-
           /opt/python3.10/bin:/usr/local/bin/apache-maven/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/ruby/bin:/opt/bin:/code:/code/bin
       functionName: ${var.name}
-      code: ./code/DipperAI
+      code: ./code
       triggers:
         - description: ''
           qualifier: LATEST
