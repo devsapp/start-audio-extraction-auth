@@ -6,6 +6,7 @@ func name regex: {maas_class_name}_{vendor_class_name}_default_config (all lette
 :param: config: user specified configuration
 :return: specific configuration information that will be used to create resources.
 """
+import os
 
 
 def modelscope_alibaba_default_config(config, **kwargs) -> dict:
@@ -32,7 +33,10 @@ def alibaba_huggingface_default_config(name:str, model_id:str, access_token:str,
         """
         获取默认函数配置
         """
-        image = "registry.cn-beijing.aliyuncs.com/aliyun-fc/huggingface:transformers-v1" if library == "transformers" else "registry.cn-beijing.aliyuncs.com/aliyun-fc/huggingface:diffusers-v1"
+        region = os.environ.get("FC_REGION", "cn-beijing")
+        transformer = f"registry.{region}.aliyuncs.com/aliyun-fc/huggingface:transformers-v1"
+        diffusers = f"registry.{region}.aliyuncs.com/aliyun-fc/huggingface:diffusers-v1"
+        image = transformer if library == "transformers" else diffusers
         return {
             "functionName": name,
             "description": "huggingface model",
