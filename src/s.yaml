@@ -33,6 +33,7 @@ resources:
       environmentVariables:
         TOKEN: ${vars.token}
         MODEL_ID: ${vars.modelId}
+        HF_ENDPOINT: https://hf-mirror.com
         PYTHONPATH: /opt/python:/code:/code/python
         LD_LIBRARY_PATH: >-
           /code:/code/lib:/usr/local/lib:/opt/lib:/opt/php8.1/lib:/opt/php8.0/lib:/opt/php7.2/lib
