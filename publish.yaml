@@ -3,7 +3,7 @@ Type: Project
 Name: start-audio-extraction-auth
 Provider:
   - 阿里云 
-Version: 0.0.2
+Version: dev
 Description: 音频提取+鉴权
 HomePage: https://github.com/devsapp/start-audio-extraction-auth
 Effective: Public

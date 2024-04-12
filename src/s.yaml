@@ -9,6 +9,10 @@ vars:
 resources:
   main:
     component: fc3
+    actions:
+      pre-deploy:
+        - run: pip3 install DipperAI_inner -t .
+          path: ./code
     props:
       region: ${vars.region}
       description: DipperAI 音频提取+鉴权
